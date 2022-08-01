@@ -60,8 +60,9 @@ public class Family {
 
     public void addChild(Human child) {
         child.setFamily(this);
-        this.children = new Human[this.children.length + 1];
-        this.children[this.children.length - 1] = child;
+        Human[] newChildren = Arrays.copyOf(this.children,this.children.length + 1);
+        newChildren[newChildren.length-1] = child;
+        this.children=newChildren;
     }
 
     public boolean deleteChild(int index) {
